@@ -1,0 +1,65 @@
+{
+  "name": "geodev",
+  "version": "0.1.0",
+  "description": "Autonomous developer intelligence CLI — inspect, diagnose, and understand your repository",
+  "keywords": [
+    "cli",
+    "developer-tools",
+    "repository-analysis",
+    "diagnostics",
+    "devops",
+    "inspector"
+  ],
+  "author": "GeoDev Contributors",
+  "license": "MIT",
+  "homepage": "https://github.com/geodev/geodev#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geodev/geodev.git"
+  },
+  "bugs": {
+    "url": "https://github.com/geodev/geodev/issues"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "type": "module",
+  "main": "./dist/cli.js",
+  "bin": {
+    "geodev": "./dist/cli.js"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "build:watch": "tsc --project tsconfig.build.json --watch",
+    "dev": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src tests --ext .ts",
+    "clean": "node -e \"const fs = require('fs'); fs.rmSync('dist', { recursive: true, force: true });\"",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.9.1",
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "ora": "^8.2.0",
+    "simple-git": "^3.27.0",
+    "tree-sitter": "^0.21.1",
+    "tree-sitter-javascript": "^0.21.0",
+    "tree-sitter-typescript": "^0.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@vitest/coverage-v8": "^3.2.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.0"
+  }
+}

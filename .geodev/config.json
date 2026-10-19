@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "ignore": [
+    "node_modules",
+    ".git",
+    "dist",
+    "build",
+    ".next",
+    "coverage",
+    "__pycache__",
+    "target",
+    ".idea",
+    ".vscode"
+  ],
+  "analysis": {
+    "dependencies": true,
+    "git": true,
+    "code": true
+  }
+}
